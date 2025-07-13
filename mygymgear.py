@@ -1,5 +1,6 @@
 # What's in my gym?
 import barbells as bb
+
 myPlates = {bb.plate(weight=25, colour='red'):6,
               bb.plate(weight=20, colour='blue'):2,
               bb.plate(weight=15,colour='yellow'):2,
@@ -16,11 +17,4 @@ myBarbells = {bb.barbell(weight=25, name="Oly with Topsquat"):1,
               bb.barbell(weight=20, name="Oly"):1,
               bb.barbell(weight=15, name="Girls"):1,
               bb.barbell(weight=8, name="alloy technique only"):1
-              }
-myWeightPlates = {25 : 6, 20 : 2, 15 : 2, 10 : 2, 5 : 4, 2.5 : 2, 1.25 : 2, 1 : 4, 0.5 : 2, 0.25 : 2}
-
-myBarbells = {20 : [1, "oly"],
-              15 : [1, "girls"],
-              25 : [1, "Oly with TopSquat"],
-              8 : [1, "Alloy technique"]
               }

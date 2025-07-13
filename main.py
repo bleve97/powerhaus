@@ -65,8 +65,10 @@ if __name__ == "__main__":
     barbellWeight = 20
     print("Calculating aboc PH squat warmup for ", worksetWeight)
     print("In my gym I have ")
-    for bar in mygg.myBarbells:
-        print(bar)
+    for bar, num in mygg.myBarbells.items():
+        print(num, bar.weight, bar.name)
+    for plate, num in mygg.myPlates.items():
+        print(num, plate.weight, plate.colour)
     # print(mygg.myBarbells, mygg.myWeightPlates)
     squatWUp = bb.squatWarmupWeights(barbellWeight=barbellWeight, worksetWeight=worksetWeight)
     #print(barbellWeight, squatWUp.second, squatWUp.third, squatWUp.forth, worksetWeight )
