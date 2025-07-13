@@ -7,6 +7,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 
+import mygymgear as mygg
 import barbells as bb
 from kivy.app import App
 from kivy.lang import Builder
@@ -63,6 +64,10 @@ if __name__ == "__main__":
     worksetWeight = 72.5
     barbellWeight = 20
     print("Calculating aboc PH squat warmup for ", worksetWeight)
+    print("In my gym I have ")
+    for bar in mygg.myBarbells:
+        print(bar)
+    # print(mygg.myBarbells, mygg.myWeightPlates)
     squatWUp = bb.squatWarmupWeights(barbellWeight=barbellWeight, worksetWeight=worksetWeight)
     #print(barbellWeight, squatWUp.second, squatWUp.third, squatWUp.forth, worksetWeight )
     print("Warmup for ", worksetWeight,"with a ",barbellWeight,"kg barbell")

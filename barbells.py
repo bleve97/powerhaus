@@ -1,5 +1,19 @@
 import math
 
+class barbell:
+    def __init__(self, weight=20.0, name="barbell"):
+        self.weight = int(weight)
+        self.name = name
+
+class plate:
+    def __init__(self, weight, colour='black'):
+        self.weight = float(weight)
+        self.colour = colour
+
+class collar:
+    def __init__(self, weight=2.5): # a metal Oly collar is 2.5kg per pair, the plastic ones are maybe 200g?
+        self.weight = float(weight)
+
 class squatWarmupWeights:
     def __init__(self, barbellWeight=20.0, worksetWeight=100.0):
         self.worksetWeight = worksetWeight
