@@ -38,9 +38,9 @@ class squatWarmupWeights:
         self.forth = worksetWeight * 0.8
         if self.second <= self.barbellWeight:
             print("bugger! second set should be ", self.second)
-            self.second = (self.worksetWeight - self.barbellWeight) * 0.2 + self.barbellWeight
-            self.third = (self.worksetWeight - self.barbellWeight) * 0.45 + self.barbellWeight
-            self.forth = (self.worksetWeight - self.barbellWeight) * 0.7 + self.barbellWeight
+            self.second = (self.worksetWeight - self.barbellWeight) * 0.3 + self.barbellWeight
+            self.third = (self.worksetWeight - self.barbellWeight) * 0.5 + self.barbellWeight
+            self.forth = (self.worksetWeight - self.barbellWeight) * 0.8 + self.barbellWeight
 
         self.second = self.saneWeight(self.second)
         self.third = self.saneWeight(self.third)
