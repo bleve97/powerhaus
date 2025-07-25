@@ -23,11 +23,15 @@ class WarmupCalcApp(BoxLayout):
         if debug:
             print("WarmupCalcApp()")
 
-        self.input = TextInput(hint_text = 'Workset Weight (kg)', multiline=False, input_filter='float')
+        self.input = TextInput(hint_text = 'Workset Weight (kg)', multiline=False, input_filter='float',
+                               halign='center')
+        self.input.bind(on_text_validate=self.wupCalc)
         self.add_widget(self.input)
-        self.button = Button(text='work it out')
-        self.button.bind(on_press=self.wupCalc)
-        self.add_widget(self.button)
+
+        #self.button = Button(text='work it out',
+        #                     background_color=(0,0,1,1))
+        #self.button.bind(on_press=self.wupCalc)
+        #self.add_widget(self.button)
 
         self.result_label = Label(text='Result will appear here')
         self.add_widget(self.result_label)
@@ -54,8 +58,11 @@ class WarmupCalcApp(BoxLayout):
 
 class BarCalcApp(App):
     # pass
+    kv_directory = 'kv_files'
+
 
     def build(self):
+    #    return Label()
         return WarmupCalcApp()
         # return Label(text=Progname)
 
