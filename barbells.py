@@ -1,9 +1,10 @@
 import math
 
 class barbell:
-    def __init__(self, weight=20.0, name="barbell"):
+    def __init__(self, weight=20.0, name="barbell",available=False):
         self.weight = int(weight)
         self.name = name
+        self.available = False  # default to not having it
 
 class plate:
     def __init__(self, weight, colour='black'):

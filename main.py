@@ -6,6 +6,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.label import Label
+from kivy.uix.checkbox import CheckBox
+from functools import partial   # to make kivy bind be useful. really?!
 
 import mygymgear as mygg
 import barbells as bb
@@ -17,30 +19,47 @@ Version = '0.1a01'
 debug = True
 
 
+
+
 class WarmupCalcApp(BoxLayout):
     def __init__(self, **kwargs):
         super(WarmupCalcApp, self).__init__(orientation='vertical', **kwargs)
         if debug:
             print("WarmupCalcApp()")
+        self.barbells = BoxLayout(orientation='horizontal')
+        defaultBB = True
+        for bar in mygg.myBarbells:
+            print('mygg barbells : ', bar.weight, bar.name)
+            if defaultBB:
+                checkbox = CheckBox(group='bars',active=True)
+                defaultBB = False
+            else:
+                checkbox = CheckBox(group='bars')
+            #checkbox.bind(on_press=partial(self.setActive, bar.weight))
+            checkbox.bind(active=partial(self.setActive, bar.weight))
 
+            self.barbells.add_widget(checkbox)
+            self.barbells.add_widget(Label(text=bar.name))
+
+        self.add_widget(self.barbells)
         self.input = TextInput(hint_text = 'Workset Weight (kg)', multiline=False, input_filter='float',
                                halign='center')
         self.input.bind(on_text_validate=self.wupCalc)
         self.add_widget(self.input)
 
-        #self.button = Button(text='work it out',
-        #                     background_color=(0,0,1,1))
-        #self.button.bind(on_press=self.wupCalc)
-        #self.add_widget(self.button)
-
         self.result_label = Label(text='Result will appear here')
         self.add_widget(self.result_label)
+
+    def setActive(self,foo,baz,bloot):
+        print(foo, bar.weight)
+        self.barbellWeight = foo
+        print(f'setActive() made the barbell weight {self.barbellWeight}kg')
 
     def wupCalc(self, instance):
         try:
             workSetWeight = float(self.input.text)
-            # print("wupCalc() Calculating aboc PH squat warmup for ", worksetWeight)
-            squatWUp = bb.squatWarmupWeights(barbellWeight=barbellWeight, worksetWeight=workSetWeight)  #
+            print(f'wupCalc() Calculating aboc PH squat warmup for {worksetWeight} with the {self.barbellWeight}kg bar')
+            squatWUp = bb.squatWarmupWeights(barbellWeight=self.barbellWeight, worksetWeight=workSetWeight)  #
             number = float(self.input.text)
             print("wupCalc() : ", number)
             # result = "Barbell weight : %d\n" % (int(barbellWeight))

@@ -13,8 +13,8 @@ myPlates = {bb.plate(weight=25, colour='red'):6,
               bb.plate(weight=0.25, colour='white'):2
               }
 
-myBarbells = {bb.barbell(weight=25, name="Oly with Topsquat"):1,
-              bb.barbell(weight=20, name="Oly"):1,
-              bb.barbell(weight=15, name="Girls"):1,
-              bb.barbell(weight=8, name="alloy technique only"):1
+myBarbells = {bb.barbell(weight=25, name="Oly with Topsquat",available=True):1,
+              bb.barbell(weight=20, name="Oly",available=True):1,
+              bb.barbell(weight=15, name="Girls", available=True):1,
+              bb.barbell(weight=8, name="alloy technique only", available=False):1
               }
