@@ -24,6 +24,7 @@ debug = True
 class WarmupCalcApp(BoxLayout):
     def __init__(self, **kwargs):
         super(WarmupCalcApp, self).__init__(orientation='vertical', **kwargs)
+        # defaultBB = barbellWeight
         if debug:
             print("WarmupCalcApp()")
         self.barbells = BoxLayout(orientation='horizontal')
@@ -32,6 +33,7 @@ class WarmupCalcApp(BoxLayout):
             print('mygg barbells : ', bar.weight, bar.name)
             if defaultBB:
                 checkbox = CheckBox(group='bars',active=True)
+                self.barbellWeight = bar.weight
                 defaultBB = False
             else:
                 checkbox = CheckBox(group='bars')
@@ -50,9 +52,9 @@ class WarmupCalcApp(BoxLayout):
         self.result_label = Label(text='Result will appear here')
         self.add_widget(self.result_label)
 
-    def setActive(self,foo,baz,bloot):
-        print(foo, bar.weight)
-        self.barbellWeight = foo
+    def setActive(self,bbweight: int,foo,baz):
+        print(bbweight, bar.weight)
+        self.barbellWeight = bbweight
         print(f'setActive() made the barbell weight {self.barbellWeight}kg')
 
     def wupCalc(self, instance):
