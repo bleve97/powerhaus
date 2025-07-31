@@ -43,9 +43,12 @@ class squatWarmupWeights:
             self.third = (self.worksetWeight - self.barbellWeight) * 0.5 + self.barbellWeight
             self.forth = (self.worksetWeight - self.barbellWeight) * 0.8 + self.barbellWeight
 
+
         self.second = self.saneWeight(self.second)
         self.third = self.saneWeight(self.third)
         self.forth = self.saneWeight(self.forth)
+        if self.forth == worksetWeight:  # this shouldn't happen, but sometimes ....
+            self.forth = self.forth - 2.5
         self.worksetPerSide = (self.worksetWeight - self.barbellWeight) / 2.0
         self.secondPerSide = (self.second - self.barbellWeight) / 2.0
         self.thirdPerSide = (self.third - self.barbellWeight) / 2.0
