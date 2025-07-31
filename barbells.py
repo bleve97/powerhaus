@@ -38,7 +38,7 @@ class squatWarmupWeights:
         self.third = worksetWeight * 0.6
         self.forth = worksetWeight * 0.8
         if self.second <= self.barbellWeight:
-            print("bugger! second set should be ", self.second)
+            print(f"bugger! second set should be {self.second}")
             self.second = (self.worksetWeight - self.barbellWeight) * 0.3 + self.barbellWeight
             self.third = (self.worksetWeight - self.barbellWeight) * 0.5 + self.barbellWeight
             self.forth = (self.worksetWeight - self.barbellWeight) * 0.8 + self.barbellWeight
@@ -69,7 +69,7 @@ class squatWarmupWeights:
 class BBLoad:
     def __init__(self, load=20, barweight=20, availweights=[25.0,20.0,15.0,10.0,5.0,2.5,1.25]):
         self.barweight = barweight
-        self.availweights = availaweights
+        self.availweights = availweights
         self.requiredLoad = load - barweight
         self.eachside = 0
 

@@ -70,7 +70,7 @@ class WarmupCalcApp(BoxLayout):
             result += f'3rd (60%) 1 x 5 @ {squatWUp.third:n} ({squatWUp.thirdPerSide:n} per side)\n'
             result += f'4th (80%) 1 x 2 @ {squatWUp.forth:n} ({squatWUp.forthPerSide:n} per side)\n'
             result += f'Rest for at least {squatWUp.minRestTimeMins:n} minutes\n'
-            result += f'Work Set 3 x 5 @ {squatWUp.worksetWeight:n} ({squatWUp.worksetPerSide:n} per side'
+            result += f'Work Set 3 x 5 @ {squatWUp.worksetWeight:n} ({squatWUp.worksetPerSide:n} per side)'
 
             self.result_label.text = result
         except ValueError:
